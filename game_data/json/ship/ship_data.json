@@ -1,0 +1,72 @@
+{
+    "_comments": {
+        "general": "这是一个包含船只信息的JSON文件",
+        "format": "键名即为船只类型标识符, describe: 船只描述, health: 生命值, atk: 攻击力, def: 防御力, size: 船只大小, model_path: 船只的场景路径",
+        "example": {
+            "describe": "一艘强大的战列舰，拥有厚重的装甲和强大的火力",
+            "health": 150.0,
+            "atk": 80.0,
+            "def": 15.0,
+            "size": 3,
+            "model_path": "res://assets/model/ships/battleship/battleship.tscn"
+        }
+    },
+    "ships": {
+        "battleship": {
+            "describe": "一艘强大的战列舰，拥有厚重的装甲和强大的火力",
+            "health": 150.0,
+            "atk": 80.0,
+            "def": 15.0,
+            "size": 1,
+            "model_path": "res://assets/model/ships/battleship/battleship.tscn"
+        },
+        "battleship": {
+            "describe": "一艘战列舰，拥有厚重的装甲和强大的火力",
+            "health": 150.0,
+            "atk": 80.0,
+            "def": 15.0,
+            "size": 3,
+            "model_path": "res://assets/model/ships/battleship/battleship.tscn"
+        },
+        "cruiser": {
+            "describe": "平衡型巡洋舰，速度与火力并重",
+            "health": 100.0,
+            "atk": 60.0,
+            "def": 10.0,
+            "size": 2,
+            "model_path": "res://assets/model/ships/cruiser/cruiser.tscn"
+        },
+        "destroyer": {
+            "describe": "快速机动的驱逐舰，擅长侦察和骚扰",
+            "health": 75.0,
+            "atk": 45.0,
+            "def": 8.0,
+            "size": 1,
+            "model_path": "res://assets/model/ships/destroyer/destroyer.tscn"
+        },
+        "frigate": {
+            "describe": "轻型护卫舰，成本低廉但战斗力有限",
+            "health": 50.0,
+            "atk": 30.0,
+            "def": 5.0,
+            "size": 1,
+            "model_path": "res://assets/model/ships/frigate/frigate.tscn"
+        },
+        "carrier": {
+            "describe": "航空母舰，搭载战斗机进行远程攻击",
+            "health": 120.0,
+            "atk": 40.0,
+            "def": 12.0,
+            "size": 4,
+            "model_path": "res://assets/model/ships/carrier/carrier.tscn"
+        },
+        "dreadnought": {
+            "describe": "超级战舰，拥有毁天灭地的火力",
+            "health": 200.0,
+            "atk": 120.0,
+            "def": 20.0,
+            "size": 5,
+            "model_path": "res://assets/model/ships/dreadnought/dreadnought.tscn"
+        }
+    }
+}

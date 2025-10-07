@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://fah8720aox75"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_8co8g"]
+[ext_resource type="Script" uid="uid://be7gdxk7043h4" path="res://scenes/ui/components/tech_system/general_tech_list.gd" id="2_175et"]
+[ext_resource type="PackedScene" uid="uid://c7m1e6mbjb86p" path="res://scenes/ui/components/tech_system/general_tech_label.tscn" id="3_5p61x"]
+
+[node name="GeneralTechList" type="PanelContainer" node_paths=PackedStringArray("label_container")]
+offset_right = 560.0
+offset_bottom = 407.0
+theme = ExtResource("1_8co8g")
+script = ExtResource("2_175et")
+label_container = NodePath("ScrollContainer/MarginContainer/Container")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+horizontal_scroll_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="Container" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TechLabel" parent="ScrollContainer/MarginContainer/Container" instance=ExtResource("3_5p61x")]
+layout_mode = 2
+
+[node name="TechLabel2" parent="ScrollContainer/MarginContainer/Container" instance=ExtResource("3_5p61x")]
+layout_mode = 2
+
+[node name="TechLabel3" parent="ScrollContainer/MarginContainer/Container" instance=ExtResource("3_5p61x")]
+layout_mode = 2
+
+[node name="TechLabel4" parent="ScrollContainer/MarginContainer/Container" instance=ExtResource("3_5p61x")]
+layout_mode = 2

@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci5lypcl410ec"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_8kluk"]
+[ext_resource type="Script" uid="uid://dttotq6e7lv1s" path="res://scenes/ui/panel/diplomacy_panel.gd" id="2_t2h78"]
+[ext_resource type="PackedScene" uid="uid://c371ilcfsu48t" path="res://scenes/ui/components/table.tscn" id="3_xfq0m"]
+[ext_resource type="Script" uid="uid://bgwm10x8liklt" path="res://scenes/ui/components/area/info_area.gd" id="4_t2h78"]
+
+[node name="DiplomacyPanel" type="Control" node_paths=PackedStringArray("table", "faction_info_label", "declare_war_button", "declare_war_info_area")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8kluk")
+script = ExtResource("2_t2h78")
+table = NodePath("PanelContainer/VBoxContainer/Table")
+faction_info_label = NodePath("PanelContainer/VBoxContainer/Control/FactionInfoLabel")
+declare_war_button = NodePath("PanelContainer/VBoxContainer/Control/GridContainer/DeclareWarButton")
+declare_war_info_area = NodePath("PanelContainer/VBoxContainer/Control/GridContainer/DeclareWarButton/InfoArea")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Table" parent="PanelContainer/VBoxContainer" instance=ExtResource("3_xfq0m")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+column_keys = Array[String](["faction_name", "relation", "favor", "intelligence_out"])
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Exit" type="Button" parent="PanelContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_bottom = 47.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 26
+text = "X"
+
+[node name="FactionInfoLabel" type="Label" parent="PanelContainer/VBoxContainer/Control"]
+layout_mode = 1
+offset_top = 210.0
+offset_right = 361.0
+offset_bottom = 559.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -137.0
+offset_right = 362.0
+offset_bottom = -6.0
+grow_vertical = 0
+columns = 5
+
+[node name="DeclareWarButton" type="Button" parent="PanelContainer/VBoxContainer/Control/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "宣战"
+
+[node name="InfoArea" type="BoxContainer" parent="PanelContainer/VBoxContainer/Control/GridContainer/DeclareWarButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_t2h78")
+metadata/_custom_type_script = "uid://bgwm10x8liklt"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Control/Exit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Control/GridContainer/DeclareWarButton" to="." method="_on_declare_war_pressed"]

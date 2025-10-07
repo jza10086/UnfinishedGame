@@ -1,0 +1,43 @@
+{    "_comments": {
+		"general": "这是一个包含行星系统信息的JSON文件",
+		"format": "键名即为星系类型标识符, describe: 星系描述, size: 星系大小, weight: 星系权重, unique: 是否唯一(true:有且只有一个,false:随机数量), special_name: 特殊名称(当unique为true时使用), planets: 包含的行星（orbit轨道编号、radius半径、angle角度）",        "example": {
+			"describe": "标准太阳系，包含一颗恒星和多颗行星",
+			"size": 2.5,
+			"weight": 0.8,
+			"unique": false,
+			"special_name": "",
+			"planets": {
+				"star001": {"orbit": 0, "radius": 0, "angle": 0},
+				"rocky_planet": {"orbit": 1, "radius": 1.0, "angle": 0.5}
+			}
+		}
+	},
+	"stellars": {
+        "default_stellar_type": {
+			"describe": "this is default_stellar_type",
+			"size": 1.0,
+			"weight": 7.0,
+			"unique": false,
+			"special_name": "",
+			"planets":{
+				"star001": {"orbit": 0, "radius": 0.0, "angle": 0},
+				"earth": {"orbit": 3, "radius": 4.3, "angle": 0.2},
+				"mercury": {"orbit": 1, "radius": 2.0, "angle": 0.7},
+				"saturn": {"orbit": 6, "radius": 14.0, "angle": 0.9}
+			}
+		},
+        "solar_system": {
+			"describe": "标准太阳系，包含一颗恒星和多颗行星",
+			"size": 1.0,
+			"weight": 3.0,
+			"unique": true,
+			"special_name": "太阳系",
+			"planets":{
+				"star001": {"orbit": 0, "radius": 0, "angle": 0},
+				"earth": {"orbit": 3, "radius": 4.3, "angle": 0.33},
+				"mercury": {"orbit": 1, "radius": 2.0, "angle": 0.1},
+				"saturn": {"orbit": 6, "radius": 14.0, "angle": 0.8}
+			}
+		}
+    }
+}

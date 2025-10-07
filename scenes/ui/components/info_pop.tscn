@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://2av7fxeuw5rh"]
+
+[ext_resource type="Script" uid="uid://c2l3m7ik5icec" path="res://scenes/ui/components/info_pop.gd" id="1_hsris"]
+[ext_resource type="FontFile" uid="uid://boiau6kdtxw3o" path="res://assets/ui/font/SourceHanSansCN/SubsetOTF/CN/SourceHanSansCN-Bold.otf" id="2_fiinl"]
+[ext_resource type="Texture2D" uid="uid://dsfvdmh0qpmer" path="res://assets/ui/panel_png/corner32x32x2.png" id="3_hsris"]
+[ext_resource type="Texture2D" uid="uid://dryhy32cu3i7a" path="res://assets/ui/icon/progress_circle/circle_empty.png" id="4_uy1pk"]
+[ext_resource type="Texture2D" uid="uid://bhpvkp17yxvug" path="res://assets/ui/icon/progress_circle/circle.png" id="5_gwr65"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsris"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7khdq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fiinl"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 0, 0, 0)
+
+[node name="InfoPop" type="PanelContainer" node_paths=PackedStringArray("rich_label", "circle_texture_bar")]
+top_level = true
+texture_filter = 1
+offset_right = 256.0
+offset_bottom = 156.0
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hsris")
+script = ExtResource("1_hsris")
+rich_label = NodePath("MarginContainer/Panel/MarginContainer/RichTextLabel")
+circle_texture_bar = NodePath("MarginContainer/Panel/MarginContainer/RichTextLabel/NinePatchRect/TextureProgressBar")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_7khdq")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_fiinl")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fiinl")
+bbcode_enabled = true
+text = "[color=#FF4444][outline_size=9][outline_color=black]测试文本
+1234567890
+abcdefghijk
+!@#$%^&*()
+[/outline_color][/outline_size][/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Panel/MarginContainer/RichTextLabel"]
+modulate = Color(0.8560673, 0.8560673, 0.85606724, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -8.0
+offset_right = 23.0
+offset_bottom = 8.0
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_hsris")
+region_rect = Rect2(1, 1, 30, 30)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Panel/MarginContainer/RichTextLabel/NinePatchRect"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 495.0
+offset_bottom = 495.0
+scale = Vector2(0.05, 0.05)
+max_value = 98.5
+value = 75.0
+fill_mode = 4
+texture_under = ExtResource("4_uy1pk")
+texture_progress = ExtResource("5_gwr65")

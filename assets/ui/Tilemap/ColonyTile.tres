@@ -1,0 +1,33 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dbflqvg00407i"]
+
+[ext_resource type="Texture2D" uid="uid://oqk6euqud345" path="res://assets/ui/Tilemap/default_tile.png" id="1_lub4n"]
+[ext_resource type="Texture2D" uid="uid://dpsfb83p3pto4" path="res://assets/ui/Tilemap/grass_3.png" id="2_qxdjq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omoc4"]
+texture = ExtResource("2_qxdjq")
+texture_region_size = Vector2i(512, 512)
+0:0/next_alternative_id = 4
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/modulate = Color(0.901961, 1, 1, 1)
+0:0/2 = 2
+0:0/2/modulate = Color(1, 0.901961, 1, 1)
+0:0/3 = 3
+0:0/3/modulate = Color(1, 1, 0.901961, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxdjq"]
+texture = ExtResource("1_lub4n")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+1:0/0 = 0
+
+[resource]
+tile_shape = 3
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(510, 218)
+custom_data_layer_0/name = "data"
+custom_data_layer_0/type = 0
+sources/2 = SubResource("TileSetAtlasSource_qxdjq")
+sources/0 = SubResource("TileSetAtlasSource_omoc4")
+tile_proxies/coords_level = [[1, Vector2i(0, 0)], [4, Vector2i(0, 0)], [2, Vector2i(0, 0)], [4, Vector2i(1, 0)]]

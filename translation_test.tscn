@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://drvlkeuru8a08"]
+
+[ext_resource type="Script" uid="uid://2yi7vndmh4e0" path="res://translation_test.gd" id="1_bx3iy"]
+[ext_resource type="FontFile" uid="uid://boiau6kdtxw3o" path="res://assets/ui/font/SourceHanSansCN/SubsetOTF/CN/SourceHanSansCN-Bold.otf" id="2_6p4lo"]
+[ext_resource type="Script" uid="uid://djnnt4ys7yi5g" path="res://trans_test_1.gd" id="3_3hm17"]
+
+[node name="Node" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 366.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("2_6p4lo")
+text = "科技值溢出:0.0
+"
+
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(137, 93)
+script = ExtResource("1_bx3iy")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(137, 93)
+script = ExtResource("3_3hm17")

@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c81td5fexwvhf"]
+
+[ext_resource type="Shader" uid="uid://c0eeb3n1yowkj" path="res://assets/model/planets/planet_shader.gdshader" id="1_d4m5m"]
+[ext_resource type="Texture2D" uid="uid://d0srs10rr7wi8" path="res://assets/model/planets/star001/star001.png" id="2_qqqbd"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_d4m5m")
+shader_parameter/base_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_color_texture = ExtResource("2_qqqbd")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/emission_color = Color(1, 0.663926, 0.652996, 1)
+shader_parameter/emission_energy = 2.0
+shader_parameter/emission_texture = ExtResource("2_qqqbd")
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 0.0

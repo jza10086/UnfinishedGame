@@ -1,0 +1,38 @@
+{
+	"_comments": {
+		"general": "这是一个包含地形瓦片信息的JSON文件",
+		"format": "以type为键的对象结构，每个type包含：tileset_path(tileset资源路径), tile_id(在tileset中的瓦片ID), tile_coord(瓦片坐标), unit_group(所属组), resource(资源产出), group(分组标签)",
+		"structure_change": "结构已从tiles数组改为type键值对，custom_data内容已拆分为独立字段",
+		"example": {
+			"grass": {
+				"tileset_path": "res://assets/ui/Tilemap/ColonyTile.tres",
+				"tile_id": 0,
+				"tile_coord": {"x": 0, "y": 0},
+				"alt_tile": [0,1,2,3],
+				"unit_group": "Terrain",
+				"resource": {"FOOD": 2, "ENERGY": 1, "MINE": 0},
+				"group": ["land", "food"]
+			}
+		}
+	},
+	"tiles": {
+		"grass": {
+			"tileset_path": "res://assets/ui/Tilemap/ColonyTile.tres",
+			"tile_id": 0,
+			"tile_coord": {"x": 0, "y": 0},
+			"alt_tile": [0,1,2,3],
+			"unit_group": "Terrain",
+			"resource": {"FOOD": 2, "ENERGY": 1, "MINE": 0},
+			"group": ["land", "food"]
+		},
+		"desert": {
+			"tileset_path": "res://assets/ui/Tilemap/ColonyTile.tres",
+			"tile_id": 0,
+			"tile_coord": {"x": 1, "y": 0},
+			"alt_tile": [0],
+			"unit_group": "Terrain",
+			"resource": {"FOOD": 0, "ENERGY": 2, "MINE": 1},
+			"group": ["land", "power"]
+		}
+	}
+}

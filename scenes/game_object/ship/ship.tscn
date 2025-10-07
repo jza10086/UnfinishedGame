@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dplln21y7t0vk"]
+
+[ext_resource type="Script" uid="uid://vxr2u4rikbtp" path="res://scenes/game_object/ship/ship.gd" id="1_boybn"]
+
+[node name="Ship" type="Node3D"]
+top_level = true
+script = ExtResource("1_boybn")
+
+[node name="ModelContainer" type="Node3D" parent="."]

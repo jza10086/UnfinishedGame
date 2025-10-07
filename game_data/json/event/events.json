@@ -1,0 +1,14 @@
+{
+    "events":{
+		"test_event":{
+			"name": "test_event",                     
+			"type": "normal",                                    
+			"description": "test_event_description",             
+			"picture_path": "res://assets/ui/icon/fleet_icon1.png",                 
+			"is_unique": false,             
+			"cooldown": 0,                
+			"trigger": {"test_event_trigger": {}},                 
+			"options": {"test_event_option": {}}               
+		}
+	}
+}

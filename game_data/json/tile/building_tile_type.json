@@ -1,0 +1,59 @@
+{
+	"_comments": {
+		"general": "这是一个包含建筑瓦片信息的JSON文件",
+		"format": "以type为键的对象结构，每个type包含：tileset_path(tileset资源路径), tile_id(在tileset中的瓦片ID), tile_coord(瓦片坐标), unit_group(所属组), constructing_tile_type(建造中占位类型), cost(建造成本), turn_cost(建造回合), resource(资源产出), group(分组标签)",
+		"structure_change": "结构已从tiles数组改为type键值对，custom_data内容已拆分为独立字段",
+		"example": {
+			"building_example": {
+				"tileset_path": "res://assets/ui/Tilemap/ColonyBuildingTile.tres",
+				"tile_id": 0,
+				"tile_coord": {"x": 0.0, "y": 0.0},
+				"alt_tile": [0],
+				"cost": {"MINE": 10.0},
+				"turn_cost": 1,
+				"unit_group": "building",
+				"constructing_tile_type": "building_building",
+				"resource": {"FOOD": 2.0, "ENERGY": 1.0, "MINE": 0.0},
+				"group": ["on_land", "base"]
+			}
+		}
+	},
+	"tiles": {
+		"building_building": {
+			"tileset_path": "res://assets/ui/Tilemap/ColonyBuildingTile.tres",
+			"tile_id": 0,
+			"tile_coord": {"x": 0.0, "y": 0.0},
+			"alt_tile": [0],
+			"cost": {"MINE": 10.0},
+			"turn_cost": 1,
+			"unit_group": "building",
+			"constructing_tile_type": "building_building",
+			"resource": {},
+			"group": ["on_land", "base"]
+		},
+		"base_1": {
+			"tileset_path": "res://assets/ui/Tilemap/ColonyBuildingTile.tres",
+			"tile_id": 0,
+			"tile_coord": {"x": 1.0, "y": 0.0},
+			"alt_tile": [0],
+			"cost": {"MINE": 10.0},
+			"turn_cost": 2,
+			"unit_group": "building",
+			"constructing_tile_type": "building_building",
+			"resource": {"ENERGY": 2.0},
+			"group": ["on_land", "base"]
+		},
+		"base_2": {
+			"tileset_path": "res://assets/ui/Tilemap/ColonyBuildingTile.tres",
+			"tile_id": 0,
+			"tile_coord": {"x": 2.0, "y": 0.0},
+			"alt_tile": [0],
+			"cost": {"MINE": 10.0},
+			"turn_cost": 3,
+			"unit_group": "building",
+			"constructing_tile_type": "building_building",
+			"resource": {"ENERGY": 2.0},
+			"group": ["on_land", "base"]
+		}
+	}
+}

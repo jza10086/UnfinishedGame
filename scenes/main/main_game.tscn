@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhtxno0x2qoqt"]
+
+[ext_resource type="Script" uid="uid://cg14x7x3krpop" path="res://scripts/game_logic/map_generater.gd" id="1_5fn2n"]
+[ext_resource type="Script" uid="uid://b5xl0yk5833ed" path="res://scripts/main/main_game.gd" id="1_main_game"]
+[ext_resource type="PackedScene" uid="uid://dgm7k3a5chofj" path="res://scripts/game_logic/camera/camera_manager.tscn" id="3_5fn2n"]
+[ext_resource type="PackedScene" uid="uid://dkow3hkjn6ne8" path="res://scenes/game_object/fleet/Fleet.tscn" id="3_bebfr"]
+[ext_resource type="Material" uid="uid://d26kfl6jl1ahr" path="res://assets/model/sky/sky_shader_material.tres" id="4_bebfr"]
+[ext_resource type="PackedScene" uid="uid://igpac4japrk1" path="res://scenes/ui/hud/test_hud.tscn" id="6_esv8v"]
+
+[sub_resource type="Sky" id="Sky_esv8v"]
+sky_material = ExtResource("4_bebfr")
+
+[sub_resource type="Environment" id="Environment_esv8v"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_esv8v")
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_intensity = 1.0
+glow_blend_mode = 0
+glow_hdr_scale = 0.1
+adjustment_enabled = true
+
+[node name="MainGame" type="Node3D"]
+script = ExtResource("1_main_game")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Galaxies" type="Node3D" parent="World"]
+
+[node name="Stellars" type="Node3D" parent="World/Galaxies"]
+script = ExtResource("1_5fn2n")
+
+[node name="Units" type="Node3D" parent="."]
+
+[node name="Fleets" type="Node3D" parent="Units"]
+
+[node name="Fleet" parent="Units/Fleets" instance=ExtResource("3_bebfr")]
+
+[node name="GameplayLogic" type="Node" parent="."]
+
+[node name="MainCam" parent="GameplayLogic" instance=ExtResource("3_5fn2n")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TestHUD" parent="UI" instance=ExtResource("6_esv8v")]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background"]
+transform = Transform3D(-0.318959, 0.941487, -0.108934, -0.341286, -0.00686758, 0.939934, 0.884188, 0.336978, 0.323507, 0, 1.96401, 0)
+light_specular = 5.0
+light_cull_mask = 4294967294
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Background"]
+environment = SubResource("Environment_esv8v")
+
+[editable path="GameplayLogic/MainCam"]

@@ -1,0 +1,46 @@
+{
+    "_comments": {
+        "general": "这是一个包含加成类型信息的JSON文件",
+        "format": "键名即为加成类型标识符, describe: 加成描述, bonus_type: 加成计算类型(BASIC/BONUS/MULTIPLIER), stackable: 是否可堆叠, duration_turns: 持续回合数(-1为永久，不可为0)",
+        "example": {
+            "describe": "科技加成：能量产出+20%",
+            "bonus_type": "MULTIPLIER",
+            "stackable": false,
+            "duration_turns": -1,
+            "resources": {
+                "ENERGY": 1.2
+            }
+        }
+    },
+    "bonus_types": {
+        "tech_bonus_energy": {
+            "describe": "科技加成：能量产出+20%",
+            "bonus_type": "MULTIPLIER",
+            "stackable": false,
+            "duration_turns": 2,
+            "resources": {
+                "ENERGY": 0.2
+            }
+        },
+        "building_bonus_mine": {
+            "describe": "建筑加成：矿物+3",
+            "bonus_type": "BONUS",
+            "stackable": true,
+            "duration_turns": -1,
+            "resources": {
+                "MINE": 3.0
+            }
+        },
+        "temporary_boost_all": {
+            "describe": "临时加成：所有资源+50%",
+            "bonus_type": "MULTIPLIER",
+            "stackable": false,
+            "duration_turns": 10,
+            "resources": {
+                "ENERGY": 0.5,
+                "MINE": 0.5,
+                "FOOD": 0.5
+            }
+        }
+    }
+}

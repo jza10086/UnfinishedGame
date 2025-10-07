@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b3s2ug5w5hv3p"]
+
+[ext_resource type="Shader" uid="uid://ddbdiwkhydl8a" path="res://assets/model/planets/planet_shader_alpha.gdshader" id="1_o7y7h"]
+[ext_resource type="Texture2D" uid="uid://b27fxqpkdllah" path="res://assets/model/planets/saturn/saturn ring.png" id="2_o7y7h"]
+[ext_resource type="Texture2D" uid="uid://dvdbty07ysb3s" path="res://assets/model/planets/saturn/alpha.png" id="2_xaeu8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_o7y7h")
+shader_parameter/base_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_color_texture = ExtResource("2_o7y7h")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.75
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_energy = 0.5
+shader_parameter/emission_texture = ExtResource("2_o7y7h")
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/alpha = 1.0
+shader_parameter/alpha_texture = ExtResource("2_xaeu8")

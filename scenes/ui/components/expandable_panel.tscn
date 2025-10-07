@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://clymt5t1qmq1x"]
+
+[ext_resource type="Script" uid="uid://bndhholjk5tby" path="res://scenes/ui/components/expandable_panel.gd" id="1_2x5km"]
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_yuj2s"]
+
+[node name="ExpandablePanel" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+theme = ExtResource("1_yuj2s")
+script = ExtResource("1_2x5km")
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ToggleButton" type="Button" parent="Header/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "展开面板"
+flat = true
+
+[node name="ArrowIcon" type="Label" parent="Header"]
+layout_mode = 2
+text = "▼"
+horizontal_alignment = 2
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentContainer" type="VBoxContainer" parent="Content/Panel/MarginContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Header/Panel/ToggleButton" to="." method="_on_toggle_button_pressed"]

@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dttsewfkqx3hh"]
+
+[ext_resource type="Shader" uid="uid://c0eeb3n1yowkj" path="res://assets/model/planets/planet_shader.gdshader" id="1_im4hw"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_im4hw")
+shader_parameter/base_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_energy = 0.1
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 0.0

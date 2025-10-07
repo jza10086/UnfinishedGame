@@ -1,0 +1,11 @@
+{
+    "options":{
+		"test_event_option":{
+			"name": "test_event_option",                     
+			"type": "normal",                                    
+			"description": "test_event_description",             
+			"button_style_path": "res://scenes/ui/panel/stellar_panel_button.tscn",
+			"params": {}              
+		}
+	}
+}

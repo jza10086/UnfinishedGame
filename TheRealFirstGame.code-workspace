@@ -1,0 +1,28 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {        "github.copilot.enable": {
+            "*": true,
+            "gdscript": true
+        },
+        "files.associations": {
+            "*.gd": "gdscript",
+            "*.cs": "csharp"
+        },
+        // Godot项目特定设置
+        "godot_tools.gdscript_lsp_server_port": 6005,
+        "godot_tools.editor_path": "",
+        // 工作区提示信息
+        "workbench.startupEditor": "readme"
+    },
+    "extensions": {
+        "recommendations": [
+            "github.copilot",
+            "github.copilot-chat",
+            "geequlim.godot-tools"
+        ]
+    }
+}

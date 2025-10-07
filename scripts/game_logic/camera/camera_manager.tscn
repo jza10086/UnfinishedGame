@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgm7k3a5chofj"]
+
+[ext_resource type="Script" uid="uid://bw3o7xus2rxd3" path="res://scripts/game_logic/camera/main_cam.gd" id="1_eu57x"]
+[ext_resource type="Script" uid="uid://cj2yjjkw2sc26" path="res://scripts/game_logic/camera/camera_manager.gd" id="1_pxfjn"]
+
+[node name="CameraManager" type="Node"]
+script = ExtResource("1_pxfjn")
+
+[node name="MainCam" type="Camera3D" parent="." node_paths=PackedStringArray("CamCentreTarget")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 94.917, 2.38092)
+top_level = true
+current = true
+script = ExtResource("1_eu57x")
+CamCentreTarget = NodePath("CamCentreTarget")
+
+[node name="CamCentreTarget" type="MeshInstance3D" parent="MainCam"]
+transform = Transform3D(10, 0, 0, 0, 10.00001, 0, 0, 0, 10.00001, 0, -6.866455e-05, 2.38092)
+top_level = true

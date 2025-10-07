@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d3eimclqjpvup"]
+
+[ext_resource type="Shader" uid="uid://c0eeb3n1yowkj" path="res://assets/model/planets/planet_shader.gdshader" id="1_2ix5u"]
+[ext_resource type="Texture2D" uid="uid://br2ymk6s0e38v" path="res://assets/model/planets/saturn/2k_saturn.jpg" id="2_aie6a"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2ix5u")
+shader_parameter/base_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_color_texture = ExtResource("2_aie6a")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_energy = 0.025
+shader_parameter/emission_texture = ExtResource("2_aie6a")
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 0.0

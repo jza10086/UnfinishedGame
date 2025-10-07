@@ -1,0 +1,201 @@
+{
+    "_comments": {
+        "general": "这是一个包含科技信息的JSON文件",
+        "format": "key:唯一标识符,name: 科技, tech_category: 科技类型(GENERAL/CORE), describe: 科技描述, tier: 科技等级, cost: 研发费用, tags: 科技标签数组, icon_path: 科技图标路径, requirements: 前置需求, unlocks: 解锁内容, locks: 锁定的科技（互斥科技）, weight: 权重规则数组（仅对GENERAL类型科技有效，rule类型包括base_weight/has_tech/has_event_flag）, bonus: 科技加成数组（bonus_type:加成类型, target:目标单位类型(PLANET/FLEET/STELLAR), rule:应用规则(faction/all)）",
+        "example": {
+            "name": "DefaultPak:advanced_armor",
+            "tech_category": "GENERAL",
+            "describe": "提升所有舰船的防御力+5",
+            "tier": 2,
+            "cost": 2500.0,
+            "tags": ["防御", "舰船", "被动"],
+            "icon_path": "res://assets/ui/icon/tech_armor.png",
+            "requirements": {
+                "tech": ["basic_armor"],
+                "event": [],
+                "race": []
+            },
+            "unlocks": {
+                "building": ["armor_foundry"],
+                "ship": ["heavy_cruiser"],
+                "resource": []
+            },
+            "locks": ["alternative_defense_tech"],
+            "weight": [
+                {
+                    "rule": "base_weight",
+                    "type": "base",
+                    "bonus": 1.0,
+                    "multiplier": 0.0
+                },
+                {
+                    "rule": "has_tech",
+                    "type": "conditional",
+                    "bonus": 2.0,
+                    "multiplier": 0.5
+                },
+                {
+                    "rule": "has_event_flag",
+                    "type": "conditional",
+                    "bonus": 1.5,
+                    "multiplier": 0.3
+                },
+                {
+                    "rule": "has_resource",
+                    "type": "conditional",
+                    "bonus": 1.0,
+                    "multiplier": 0.0
+                },
+                {
+                    "rule": "has_ship",
+                    "type": "conditional",
+                    "bonus": 0.5,
+                    "multiplier": -0.2
+                }
+            ],
+            "bonus": [
+                {
+                    "bonus_type": "tech_bonus_energy",
+                    "target": "PLANET",
+                    "rule": "faction"
+                }
+            ]
+        }
+    },
+    "techs": {
+        "DefaultPak:advanced_weapons": {
+            "name": "DefaultPak:advanced_weapons",
+            "tech_category": "GENERAL",
+            "describe": "提升所有舰船的攻击力+10",
+            "tier": 3,
+            "cost": 300.0,
+            "tags": ["攻击", "舰船", "被动"],
+            "icon_path": "res://assets/ui/icon/fleet_icon1.png",
+            "requirements": {
+                "tech": ["basic_weapons"],
+                "event": [],
+                "race": []
+            },
+            "unlocks": {
+                "building": ["weapons_lab"],
+                "ship": ["assault_frigate"],
+                "resource": []
+            },
+            "locks": [],
+            "weight": [
+                {
+                    "rule": "base_weight",
+                    "type": "base",
+                    "bonus": 1.0,
+                    "multiplier": 0.0
+                },
+                {
+                    "rule": "has_tech",
+                    "type": "conditional",
+                    "bonus": 1.2,
+                    "multiplier": 0.2
+                },
+                {
+                    "rule": "has_event_flag",
+                    "type": "conditional",
+                    "bonus": 0.8,
+                    "multiplier": 0.1
+                }
+            ],
+            "bonus": [
+                {
+                    "bonus_type": "tech_bonus_energy",
+                    "target": "PLANET",
+                    "rule": "faction"
+                }
+            ]
+        },
+        "DefaultPak:basic_energy": {
+            "name": "DefaultPak:basic_energy",
+            "tech_category": "GENERAL",
+            "describe": "基础能源科技，提升能源产出+5%",
+            "tier": 1,
+            "cost": 150.0,
+            "tags": ["能源", "基础", "经济"],
+            "icon_path": "res://assets/ui/icon/fleet_icon1.png",
+            "requirements": {
+                "tech": [],
+                "event": [],
+                "race": []
+            },
+            "unlocks": {
+                "building": [],
+                "ship": [],
+                "resource": []
+            },
+            "locks": [],
+            "weight": [
+                {
+                    "rule": "base_weight",
+                    "type": "base",
+                    "bonus": 1.0,
+                    "multiplier": 0.0
+                }
+            ],
+            "bonus": []
+        },
+        "DefaultPak:basic_mining": {
+            "name": "DefaultPak:basic_mining",
+            "tech_category": "GENERAL",
+            "describe": "基础采矿科技，提升矿物产出+5%",
+            "tier": 1,
+            "cost": 150.0,
+            "tags": ["矿物", "基础", "经济"],
+            "icon_path": "res://assets/ui/icon/fleet_icon1.png",
+            "requirements": {
+                "tech": [],
+                "event": [],
+                "race": []
+            },
+            "unlocks": {
+                "building": [],
+                "ship": [],
+                "resource": []
+            },
+            "locks": [],
+            "weight": [
+                {
+                    "rule": "base_weight",
+                    "type": "base",
+                    "bonus": 1.0,
+                    "multiplier": 0.0
+                }
+            ],
+            "bonus": []
+        },
+        "DefaultPak:basic_agriculture": {
+            "name": "DefaultPak:basic_agriculture",
+            "tech_category": "GENERAL",
+            "describe": "基础农业科技，提升食物产出+5%",
+            "tier": 1,
+            "cost": 150.0,
+            "tags": ["食物", "基础", "经济"],
+            "icon_path": "res://assets/ui/icon/fleet_icon1.png",
+            "requirements": {
+                "tech": [],
+                "event": [],
+                "race": []
+            },
+            "unlocks": {
+                "building": [],
+                "ship": [],
+                "resource": []
+            },
+            "locks": [],
+            "weight": [
+                {
+                    "rule": "base_weight",
+                    "type": "base",
+                    "bonus": 1.0,
+                    "multiplier": 0.0
+                }
+            ],
+            "bonus": []
+        }
+    }
+}

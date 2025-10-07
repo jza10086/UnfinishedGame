@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7m1e6mbjb86p"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_kb20a"]
+[ext_resource type="Script" uid="uid://cc0j01kudw3pq" path="res://scenes/ui/components/tech_system/general_tech_label.gd" id="2_7eenm"]
+[ext_resource type="StyleBox" uid="uid://coono1hewwmt4" path="res://assets/ui/panel.tres" id="3_kb20a"]
+[ext_resource type="Script" uid="uid://fssq0vlsv24w" path="res://scenes/ui/components/area/high_light_click_area.gd" id="4_7eenm"]
+[ext_resource type="Texture2D" uid="uid://b6dcvucrl3v8" path="res://assets/ui/icon/fleet_icon1.png" id="4_23uyj"]
+[ext_resource type="StyleBox" uid="uid://dwmiiejtcx3rp" path="res://assets/ui/panel_sub4.tres" id="5_t5njf"]
+
+[node name="GeneralTechLabel" type="PanelContainer" node_paths=PackedStringArray("name_label", "progress_label", "icon_rect", "describe_label", "tag_label", "left_click_area")]
+offset_right = 550.0
+offset_bottom = 109.0
+size_flags_horizontal = 3
+theme = ExtResource("1_kb20a")
+theme_override_styles/panel = ExtResource("3_kb20a")
+script = ExtResource("2_7eenm")
+name_label = NodePath("margin/VBoxContainer/HBoxContainer/NameLabel")
+progress_label = NodePath("margin/VBoxContainer/HBoxContainer/ProgressLabel")
+icon_rect = NodePath("margin/VBoxContainer/HBoxContainer2/IconRect")
+describe_label = NodePath("margin/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer/DescribeLabel")
+tag_label = NodePath("margin/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer/TagLabel")
+left_click_area = NodePath("margin")
+
+[node name="margin" type="MarginContainer" parent="." node_paths=PackedStringArray("target_node")]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_behavior_recursive = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 2
+script = ExtResource("4_7eenm")
+target_node = NodePath("..")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+mouse_behavior_recursive = 1
+theme_override_constants/separation = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="margin/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+bbcode_enabled = true
+text = "测试科技名称"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+
+[node name="ProgressLabel" type="RichTextLabel" parent="margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "1.0k/1.0k"
+fit_content = true
+scroll_active = false
+autowrap_mode = 1
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="margin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="IconRect" type="TextureRect" parent="margin/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("4_23uyj")
+expand_mode = 3
+
+[node name="DescribePanel" type="PanelContainer" parent="margin/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_t5njf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="margin/VBoxContainer/HBoxContainer2/DescribePanel"]
+layout_mode = 2
+
+[node name="DescribeLabel" type="RichTextLabel" parent="margin/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+bbcode_enabled = true
+text = "测试科技描述"
+fit_content = true
+scroll_active = false
+
+[node name="TagLabel" type="RichTextLabel" parent="margin/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[img=32x32]F:/GodotProjects/TheRealFirstGame/assets/ui/icon/basic_resource/矿产图标2.png[/img] "
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2

@@ -1,0 +1,5 @@
+﻿keys,en,zh_CN
+test_key,test,测试
+UI_GeneralTechPanel_EmptyTechLabel,No Active Research,无研究中科技
+UI_GeneralTechPanel_ResearchingLabel,Researching,研究中
+UI_GeneralTechPanel_ResearchingOverflowLabel,Tech point overflow:{amount},科技值溢出:{amount}

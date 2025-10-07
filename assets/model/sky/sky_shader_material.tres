@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d26kfl6jl1ahr"]
+
+[ext_resource type="Shader" uid="uid://2rijhsu0v1gg" path="res://assets/model/sky/sky_shader_material.gdshader" id="1_qucjj"]
+[ext_resource type="Texture2D" uid="uid://bwqvkaqj7s4eh" path="res://assets/model/sky/star_sky.exr" id="2_star_sky"]
+
+[resource]
+shader = ExtResource("1_qucjj")
+shader_parameter/sky_hdr = ExtResource("2_star_sky")
+shader_parameter/camera_position = Vector3(0, 0, 0)
+shader_parameter/parallax_strength = 0.05
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1.075)
+shader_parameter/rotation_speed = 9.5e-08
+shader_parameter/rotation_axis = Vector3(0, 1, 0)
+shader_parameter/exposure = 1.0
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 2.0
+shader_parameter/color_tint = Color(1, 1, 1, 1)
+shader_parameter/horizon_fade = 10.0
+shader_parameter/horizon_color = Color(0, 0, 0, 1)
+shader_parameter/atmosphere_strength = 0.0

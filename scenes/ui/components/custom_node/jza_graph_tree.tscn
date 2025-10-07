@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm5jktd2afmyf"]
+
+[ext_resource type="Script" uid="uid://cerarierb87dw" path="res://scenes/ui/components/custom_node/jza_graph_tree.gd" id="1_va6b8"]
+
+[node name="JzaGraphTree" type="Node2D" node_paths=PackedStringArray("node_container")]
+script = ExtResource("1_va6b8")
+node_container = NodePath("NodeContainer")
+_refresh_button = null
+
+[node name="NodeContainer" type="Node2D" parent="."]

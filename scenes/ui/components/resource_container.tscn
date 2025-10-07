@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbovg5vjsan0e"]
+
+[ext_resource type="PackedScene" uid="uid://bapxr18kl058x" path="res://scenes/ui/components/resource_label.tscn" id="1_e6yr4"]
+[ext_resource type="Script" uid="uid://bu22ydfxgu5a1" path="res://scenes/ui/components/resource_container.gd" id="1_xf4hn"]
+
+[node name="ResourceContainer" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1749.0
+offset_bottom = -1056.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+script = ExtResource("1_xf4hn")
+
+[node name="ResourceLabel" parent="." instance=ExtResource("1_e6yr4")]
+layout_mode = 2

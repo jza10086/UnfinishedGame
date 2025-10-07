@@ -1,0 +1,139 @@
+[gd_scene load_steps=10 format=3 uid="uid://oh41ls1xladv"]
+
+[ext_resource type="Script" uid="uid://b7wnkrgqjo80x" path="res://scenes/ui/components/tech_system/general_tech_panel.gd" id="1_5fmfx"]
+[ext_resource type="PackedScene" uid="uid://c7m1e6mbjb86p" path="res://scenes/ui/components/tech_system/general_tech_label.tscn" id="2_2ta1i"]
+[ext_resource type="PackedScene" uid="uid://fah8720aox75" path="res://scenes/ui/components/tech_system/general_tech_list.tscn" id="2_6q7er"]
+[ext_resource type="StyleBox" uid="uid://by14cplrixero" path="res://assets/ui/panel_black_wihte_broder.tres" id="2_8ju6e"]
+[ext_resource type="FontFile" uid="uid://boiau6kdtxw3o" path="res://assets/ui/font/SourceHanSansCN/SubsetOTF/CN/SourceHanSansCN-Bold.otf" id="2_pi2yj"]
+[ext_resource type="StyleBox" uid="uid://coono1hewwmt4" path="res://assets/ui/panel.tres" id="4_8ju6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi2yj"]
+bg_color = Color(0.081400014, 0.24013007, 0.37, 0.9019608)
+border_color = Color(0.47058824, 0.7647059, 0.8784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ju6e"]
+bg_color = Color(0.47058824, 0.7647059, 0.8784314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6q7er"]
+
+[node name="GeneralTechPanel" type="Control" node_paths=PackedStringArray("general_tech_list", "current_researching_tech_label", "empty_tech_label", "current_researchin_progress_bar", "researching_overflow_label")]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 524.0
+offset_bottom = -182.0
+grow_vertical = 2
+script = ExtResource("1_5fmfx")
+general_tech_list = NodePath("BoxContainer/BoxContainer/GeneralTechList")
+current_researching_tech_label = NodePath("BoxContainer/PanelContainer/MarginContainer/BoxContainer/CurrentReserchingTechLabel")
+empty_tech_label = NodePath("BoxContainer/PanelContainer/MarginContainer/BoxContainer/EmptyTechLabel")
+current_researchin_progress_bar = NodePath("BoxContainer/PanelContainer/MarginContainer/BoxContainer/CurrentReserchingProgressBar")
+researching_overflow_label = NodePath("BoxContainer/PanelContainer/MarginContainer/BoxContainer/HBoxContainer/ResearchingOverflowLabel")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="PanelContainer" type="PanelContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_styles/panel = ExtResource("2_8ju6e")
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 7
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+vertical = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/PanelContainer/MarginContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer/PanelContainer/MarginContainer/BoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_pi2yj")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "UI_GeneralTechPanel_ResearchingLabel"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="ResearchingOverflowLabel" type="RichTextLabel" parent="BoxContainer/PanelContainer/MarginContainer/BoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_pi2yj")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "
+"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="EmptyTechLabel" type="RichTextLabel" parent="BoxContainer/PanelContainer/MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(510, 108)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/normal = ExtResource("4_8ju6e")
+text = "UI_GeneralTechPanel_EmptyTechLabel"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentReserchingTechLabel" parent="BoxContainer/PanelContainer/MarginContainer/BoxContainer" instance=ExtResource("2_2ta1i")]
+visible = false
+layout_mode = 2
+
+[node name="CurrentReserchingProgressBar" type="ProgressBar" parent="BoxContainer/PanelContainer/MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_pi2yj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8ju6e")
+value = 50.0
+show_percentage = false
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GeneralTechList" parent="BoxContainer/BoxContainer" node_paths=PackedStringArray("label_container") instance=ExtResource("2_6q7er")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+label_container = NodePath(".")
+
+[node name="Panel" type="Panel" parent="BoxContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6q7er")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.6560001
+anchor_right = 3.6560001
+offset_left = -112.74402
+offset_right = 0.25598145
+offset_bottom = 87.0
+grow_horizontal = 0
+mouse_behavior_recursive = 2
+theme_override_font_sizes/font_size = 50
+text = "X"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,11 @@
+地球、水星贴图 www.solarsystemscope.com
+polyhaven.com
+https://fonts.google.com/noto/specimen/Noto+Serif+SC?preview.text
+https://fonts.google.com/noto/specimen/Noto+Sans+SC?preview.text
+中文字体 
+思源宋体 https://github.com/adobe-fonts/source-han-serif
+思源黑体 https://github.com/adobe-fonts/source-han-sans
+
+插件
+可视化2d树状图 https://github.com/ToxicStarfall/tree-maps-addon
+可视化节点脚本 https://github.com/CraterCrash/godot-orchestrator/tree/main

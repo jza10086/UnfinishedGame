@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://chun11d5jceyv"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_3cc3j"]
+[ext_resource type="Script" uid="uid://cj7bhdsjcpcad" path="res://scenes/ui/components/action_queue/action_queue_panel.gd" id="2_jjmj2"]
+[ext_resource type="PackedScene" uid="uid://cteue4jckm6vq" path="res://scenes/ui/components/action_queue/action_label.tscn" id="4_luoso"]
+[ext_resource type="PackedScene" uid="uid://clymt5t1qmq1x" path="res://scenes/ui/components/expandable_panel.tscn" id="4_v7jns"]
+
+[node name="ActionQueuePanel" type="Control" node_paths=PackedStringArray("action_list", "queue_status", "clear_all_button")]
+layout_mode = 3
+anchor_right = 0.25300002
+anchor_bottom = 0.316
+offset_right = 0.23995972
+offset_bottom = -0.2800293
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3cc3j")
+script = ExtResource("2_jjmj2")
+action_list = NodePath("ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/ScrollContainer/MarginContainer/ActionList")
+queue_status = NodePath("ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/Header/QueueStatus")
+clear_all_button = NodePath("ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/Header/ClearAllButton")
+
+[node name="ExpandablePanel" parent="." instance=ExtResource("4_v7jns")]
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+panel_title = "Action队列"
+start_expanded = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Header" type="HBoxContainer" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QueueStatus" type="Label" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "队列: 0 个Action"
+
+[node name="ClearAllButton" type="Button" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "清空全部"
+
+[node name="HSeparator" type="HSeparator" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 3
+
+[node name="ActionList" type="VBoxContainer" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionLabel" parent="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/ScrollContainer/MarginContainer/ActionList" instance=ExtResource("4_luoso")]
+layout_mode = 2
+
+[connection signal="pressed" from="ExpandablePanel/Content/Panel/MarginContainer/ContentContainer/VBoxContainer/Header/ClearAllButton" to="." method="_on_clear_all_button_pressed"]
+
+[editable path="ExpandablePanel"]

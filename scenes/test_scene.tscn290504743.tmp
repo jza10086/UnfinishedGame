@@ -1,0 +1,147 @@
+[gd_scene load_steps=19 format=3 uid="uid://dv5i0slhs8duf"]
+
+[ext_resource type="Script" uid="uid://di0ufgtn5i5si" path="res://scenes/test.gd" id="1_6qxox"]
+[ext_resource type="Script" uid="uid://bcrurogonsbw3" path="res://scripts/game_logic/unit_manager.gd" id="2_gthg3"]
+[ext_resource type="Script" uid="uid://deuejgst8he28" path="res://scenes/ui.gd" id="2_ntc4i"]
+[ext_resource type="Script" uid="uid://bwyno7wth5cmq" path="res://scripts/game_logic/turn_manager.gd" id="3_ntc4i"]
+[ext_resource type="Script" uid="uid://bpiilonvmirgm" path="res://scripts/game_logic/player_controller.gd" id="4_u0xbq"]
+[ext_resource type="PackedScene" uid="uid://dgm7k3a5chofj" path="res://scripts/game_logic/camera/main_cam.tscn" id="5_pln1h"]
+[ext_resource type="Script" uid="uid://pxn15ihjeckf" path="res://scripts/game_logic/fleet_manager.gd" id="6_8gixj"]
+[ext_resource type="Script" uid="uid://b4dusi52mcrkx" path="res://scripts/game_logic/stellar_manager.gd" id="7_hf2sn"]
+[ext_resource type="Script" uid="uid://cg14x7x3krpop" path="res://scripts/game_logic/map_generater.gd" id="8_qq5q4"]
+[ext_resource type="Script" uid="uid://c4ir8bb8qwbet" path="res://scripts/game_logic/action_system/main_action_manager.gd" id="9_gah1j"]
+[ext_resource type="PackedScene" uid="uid://igpac4japrk1" path="res://scenes/ui/hud/test_hud.tscn" id="10_ap2hy"]
+[ext_resource type="Script" uid="uid://bgbhf5m3nmhjd" path="res://scripts/game_logic/resource_system.gd" id="10_u0xbq"]
+[ext_resource type="Material" uid="uid://d26kfl6jl1ahr" path="res://assets/model/sky/sky_shader_material.tres" id="11_nlwlv"]
+[ext_resource type="Script" uid="uid://ktc56sp6f8vk" path="res://scripts/game_logic/faction_manager.gd" id="13_u0xbq"]
+[ext_resource type="Script" uid="uid://bp816btivtrwv" path="res://scripts/game_logic/planet_manager.gd" id="14_pln1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntc4i"]
+bg_color = Color(0.0402683, 0.124863, 0.198789, 0.352941)
+border_blend = true
+corner_radius_top_left = 100
+corner_detail = 16
+
+[sub_resource type="Sky" id="Sky_esv8v"]
+sky_material = ExtResource("11_nlwlv")
+
+[sub_resource type="Environment" id="Environment_jcd4p"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_esv8v")
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_intensity = 1.0
+glow_blend_mode = 0
+glow_hdr_scale = 0.1
+adjustment_enabled = true
+
+[node name="Node" type="Node3D" node_paths=PackedStringArray("ActionManager", "PlayerController", "FleetManager", "TurnManager", "MapGenerater", "UI")]
+script = ExtResource("1_6qxox")
+ActionManager = NodePath("GameplayLogic/ActionManager")
+PlayerController = NodePath("GameplayLogic/PlayerController")
+FleetManager = NodePath("GameplayLogic/FleetManager")
+TurnManager = NodePath("GameplayLogic/TurnManager")
+MapGenerater = NodePath("GameplayLogic/MapGenerater")
+UI = NodePath("UI")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_ntc4i")
+
+[node name="TestHUD" parent="UI" node_paths=PackedStringArray("turn_manager", "action_manager") instance=ExtResource("10_ap2hy")]
+turn_manager = NodePath("../../GameplayLogic/TurnManager")
+action_manager = NodePath("../../GameplayLogic/ActionManager")
+
+[node name="BottomControlBar" parent="UI/TestHUD" index="3"]
+use_parent_material = true
+
+[node name="ActionList" parent="UI/TestHUD" index="5"]
+offset_left = 1431.0
+offset_bottom = -672.0
+
+[node name="NotificationPopups" parent="UI/TestHUD" index="6"]
+offset_left = -794.0
+offset_right = -494.0
+
+[node name="RightBottom" parent="UI/TestHUD" index="8"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_ntc4i")
+
+[node name="Button" type="Button" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1313.0
+offset_top = 815.0
+offset_right = -390.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 76
+text = "测试"
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Unit" type="Node3D" parent="."]
+script = ExtResource("2_gthg3")
+
+[node name="Fleet" type="Node3D" parent="Unit"]
+
+[node name="Stellar" type="Node3D" parent="Unit"]
+
+[node name="GameplayLogic" type="Node" parent="."]
+
+[node name="TurnManager" type="Node" parent="GameplayLogic"]
+script = ExtResource("3_ntc4i")
+
+[node name="PlayerController" type="Node" parent="GameplayLogic" node_paths=PackedStringArray("ActionManager")]
+script = ExtResource("4_u0xbq")
+ActionManager = NodePath("../ActionManager")
+
+[node name="MainCam" parent="GameplayLogic" instance=ExtResource("5_pln1h")]
+
+[node name="FleetManager" type="Node" parent="GameplayLogic"]
+script = ExtResource("6_8gixj")
+
+[node name="StellarManager" type="Node" parent="GameplayLogic"]
+script = ExtResource("7_hf2sn")
+
+[node name="MapGenerater" type="Node" parent="GameplayLogic"]
+script = ExtResource("8_qq5q4")
+
+[node name="ActionManager" type="Node" parent="GameplayLogic" node_paths=PackedStringArray("trun_manager", "fleet_manager", "stellar_manager", "planet_manager", "faction_manager", "resource_system")]
+script = ExtResource("9_gah1j")
+trun_manager = NodePath("../TurnManager")
+fleet_manager = NodePath("../FleetManager")
+stellar_manager = NodePath("../StellarManager")
+planet_manager = NodePath("../PlanetManager")
+faction_manager = NodePath("../FactionManager")
+resource_system = NodePath("../ResourceSystem")
+
+[node name="ResourceSystem" type="Node" parent="GameplayLogic" node_paths=PackedStringArray("faction_manager")]
+script = ExtResource("10_u0xbq")
+faction_manager = NodePath("../FactionManager")
+
+[node name="FactionManager" type="Node" parent="GameplayLogic"]
+script = ExtResource("13_u0xbq")
+
+[node name="PlanetManager" type="Node" parent="GameplayLogic"]
+script = ExtResource("14_pln1h")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background"]
+transform = Transform3D(-0.318959, 0.941487, -0.108934, -0.341286, -0.00686758, 0.939934, 0.884188, 0.336978, 0.323507, 0, 1.96401, 0)
+light_specular = 5.0
+light_cull_mask = 4294967294
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Background"]
+environment = SubResource("Environment_jcd4p")
+
+[connection signal="pressed" from="UI/TestHUD/RightBottom/NextTurnButton" to="." method="_on_next_turn_button_pressed"]
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+
+[editable path="UI/TestHUD"]
+[editable path="UI/TestHUD/ExpandablePanel"]
+[editable path="GameplayLogic/MainCam"]

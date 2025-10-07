@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://mq4crh8mhs5c"]
+
+[ext_resource type="PackedScene" uid="uid://xp0wme48nkfk" path="res://scenes/ui/components/custom_node/jza_graph_tree_node.tscn" id="1_g256o"]
+[ext_resource type="Script" uid="uid://dcdlpgudt6l2n" path="res://scenes/ui/components/tech_system/core_tech_tree_node.gd" id="2_y6ga3"]
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="3_yeyxx"]
+
+[node name="CoreTechTreeNode" node_paths=PackedStringArray("name_label") instance=ExtResource("1_g256o")]
+script = ExtResource("2_y6ga3")
+tech_type = &""
+name_label = NodePath("CoreTechNameLabel")
+
+[node name="CoreTechNameLabel" type="RichTextLabel" parent="." index="4"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = 129.0
+offset_right = 166.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_yeyxx")
+bbcode_enabled = true
+text = "11111111111111111"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

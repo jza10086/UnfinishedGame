@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://cteue4jckm6vq"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_6svk3"]
+[ext_resource type="Script" uid="uid://klorq7gyh4p5" path="res://scenes/ui/components/action_queue/action_label.gd" id="1_d1fxm"]
+[ext_resource type="Script" uid="uid://dyb4ecgegwllj" path="res://scenes/ui/components/area/scrolling_area.gd" id="2_xbm64"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6svk3"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.580392)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 16
+
+[node name="ActionLabel" type="Control" node_paths=PackedStringArray("label", "remove_button")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchor_right = 0.156
+anchor_bottom = 0.038000003
+offset_right = 0.47994995
+offset_bottom = -0.040000916
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_6svk3")
+script = ExtResource("1_d1fxm")
+label = NodePath("Panel/HBoxContainer/ScrollingArea/Label")
+remove_button = NodePath("Panel/HBoxContainer/Button")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6svk3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="ScrollingArea" type="Control" parent="Panel/HBoxContainer" node_paths=PackedStringArray("control_node", "pause_timer")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xbm64")
+control_node = NodePath("Label")
+pause_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Panel/HBoxContainer/ScrollingArea"]
+one_shot = true
+autostart = true
+
+[node name="Label" type="RichTextLabel" parent="Panel/HBoxContainer/ScrollingArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "设置阵营当前研究科技 -> DefaultPak:basic_energy"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "X"

@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqm2w0g8e8f7c"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_aofta"]
+[ext_resource type="Script" uid="uid://d34elejrvwb82" path="res://scenes/ui/panel/stellar_panel.gd" id="2_fkisx"]
+[ext_resource type="PackedScene" uid="uid://lag61smqhjad" path="res://scenes/ui/panel/planet_panel.tscn" id="3_ioucl"]
+[ext_resource type="PackedScene" uid="uid://cbovg5vjsan0e" path="res://scenes/ui/components/resource_container.tscn" id="4_ioucl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ioucl"]
+
+[node name="StellarPanel" type="Control" node_paths=PackedStringArray("planet_panel", "button_container", "resource_container", "stellar_label", "resource_container_panel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("1_aofta")
+script = ExtResource("2_fkisx")
+planet_panel = NodePath("PlanetPanel")
+button_container = NodePath("PanelContainer/MarginContainer/VBoxContainer")
+resource_container = NodePath("PanelContainer2/ResourceContainer")
+stellar_label = NodePath("StellarNameLabel")
+resource_container_panel = NodePath("PanelContainer2")
+
+[node name="PlanetPanel" parent="." instance=ExtResource("3_ioucl")]
+visible = false
+layout_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 2.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 5
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "测试planet"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -113.0
+offset_bottom = 87.0
+grow_horizontal = 0
+mouse_behavior_recursive = 2
+theme_override_font_sizes/font_size = 50
+text = "X"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -390.0
+offset_top = -61.0
+offset_right = 388.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_behavior_recursive = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ioucl")
+text = "恒星系总览"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -308.0
+offset_right = 570.0
+grow_vertical = 0
+
+[node name="ResourceContainer" parent="PanelContainer2" instance=ExtResource("4_ioucl")]
+layout_mode = 2
+vertical = true
+
+[node name="StellarNameLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -169.0
+offset_right = 281.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "测试文本"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="StellarSubNameLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -106.0
+offset_right = 62.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 31
+text = "测试文本"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="PanelContainer2/ResourceContainer"]

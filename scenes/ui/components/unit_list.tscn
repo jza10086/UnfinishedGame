@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://gemh6stkxvo7"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_analg"]
+[ext_resource type="Script" uid="uid://d4giki40t2rvn" path="res://scenes/ui/components/unit_list.gd" id="2_analg"]
+[ext_resource type="PackedScene" uid="uid://b1801yrdvporm" path="res://scenes/ui/components/unit_panel.tscn" id="3_analg"]
+
+[node name="UnitList" type="Control" node_paths=PackedStringArray("panel_container")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 560.0
+offset_bottom = 200.0
+theme = ExtResource("1_analg")
+script = ExtResource("2_analg")
+panel_container = NodePath("PanelContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnitPanel" parent="PanelContainer" instance=ExtResource("3_analg")]
+layout_mode = 2

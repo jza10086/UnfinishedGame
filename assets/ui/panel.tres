@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://coono1hewwmt4"]
+
+[resource]
+bg_color = Color(0.131608, 0.275483, 0.419348, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.535105, 0.853977, 0.962355, 1)
+border_blend = true

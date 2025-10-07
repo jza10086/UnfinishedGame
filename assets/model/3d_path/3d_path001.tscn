@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://buddlnjv5ye8q"]
+
+[ext_resource type="Script" uid="uid://eu6e16baa88p" path="res://assets/model/3d_path/3d_path.gd" id="1_3m8k2"]
+[ext_resource type="Shader" uid="uid://c0n0xpiesjcdx" path="res://assets/model/3d_path/path_3d_shader.gdshader" id="2_7p4j1"]
+[ext_resource type="Shader" uid="uid://c0y3qcjkprck4" path="res://assets/model/3d_path/arrow_3d_shader.gdshader" id="3_awshq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awshq"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0.74902, 1, 0.0392157)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vipy5"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_awshq")
+shader = ExtResource("2_7p4j1")
+shader_parameter/stripe_count = 1.0
+shader_parameter/stripe_width = 0.5
+shader_parameter/color1 = Color(0.823529, 1, 1, 0)
+shader_parameter/color2 = Color(0, 0, 0, 0)
+shader_parameter/alpha = 1.0
+shader_parameter/use_world_coordinates = true
+shader_parameter/rotation = 0.0
+shader_parameter/speed = 0.25
+shader_parameter/offset = 0.0
+shader_parameter/uv_offset_x = 0.0
+shader_parameter/uv_offset_y = 0.0
+shader_parameter/stripe_fade = 0.0
+shader_parameter/vertical_fade_strength = 0.0
+shader_parameter/vertical_fade_top = 0.2
+shader_parameter/vertical_fade_bottom = 0.2
+shader_parameter/uv_scale_x = 1.0
+shader_parameter/uv_scale_y = 0.1
+shader_parameter/global_uv_scale = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_awshq"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_vipy5")
+shader = ExtResource("2_7p4j1")
+shader_parameter/stripe_count = 10.0
+shader_parameter/stripe_width = 0.5
+shader_parameter/color1 = Color(0, 0.75, 1, 1)
+shader_parameter/color2 = Color(1, 0, 0, 0)
+shader_parameter/alpha = 1.0
+shader_parameter/use_world_coordinates = true
+shader_parameter/rotation = 90.0
+shader_parameter/speed = 9.5e-08
+shader_parameter/offset = 0.0250001
+shader_parameter/uv_offset_x = 5.0
+shader_parameter/uv_offset_y = 82.014
+shader_parameter/stripe_fade = 1.0
+shader_parameter/vertical_fade_strength = 1.0
+shader_parameter/vertical_fade_top = 1.0
+shader_parameter/vertical_fade_bottom = 0.2
+shader_parameter/uv_scale_x = 0.05
+shader_parameter/uv_scale_y = 1.0
+shader_parameter/global_uv_scale = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_awshq"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("ShaderMaterial_awshq")
+center_offset = Vector3(0, 0, -1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0efu"]
+render_priority = 0
+shader = ExtResource("3_awshq")
+shader_parameter/triangle_width = 1.0
+shader_parameter/triangle_height = 0.8
+shader_parameter/triangle_center_color = Color(0, 0.74902, 1, 0.0392157)
+shader_parameter/triangle_edge_color = Color(0, 0.75, 1, 1)
+shader_parameter/background_color = Color(1, 1, 1, 0)
+shader_parameter/use_separate_edge_colors = true
+shader_parameter/triangle_bottom_edge_color = Color(0, 0.74902, 1, 0.0392157)
+shader_parameter/triangle_left_edge_color = Color(0, 0.74902, 1, 1)
+shader_parameter/triangle_right_edge_color = Color(0, 0.74902, 1, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/use_world_coordinates = false
+shader_parameter/gradient_strength = 1.0
+shader_parameter/gradient_from_edge = true
+shader_parameter/gradient_center_size = 0.25
+shader_parameter/gradient_sharpness = 0.1001
+shader_parameter/gradient_offset = 0.0
+shader_parameter/rotation = 0.0
+shader_parameter/position_offset = Vector2(0, 0)
+shader_parameter/repeat_x = 1.0
+shader_parameter/repeat_y = 1.0
+shader_parameter/speed = 2.375e-07
+shader_parameter/move_direction = Vector2(1, 0)
+shader_parameter/uv_scale_x = 1.0
+shader_parameter/uv_scale_y = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wxow7"]
+material = SubResource("ShaderMaterial_v0efu")
+center_offset = Vector3(0, 0, -1)
+
+[node name="3DPath" type="Node3D"]
+script = ExtResource("1_3m8k2")
+
+[node name="PathMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(9.05027, 0, 0, 0, 9.05027, 0, 0, 0, 9.05027, 0, 0, -15.7409)
+mesh = SubResource("PlaneMesh_awshq")
+
+[node name="Start" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+gizmo_extents = 1.0
+
+[node name="End" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+gizmo_extents = 1.0
+
+[node name="Arrow" type="MeshInstance3D" parent="End"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wxow7")
+skeleton = NodePath("")

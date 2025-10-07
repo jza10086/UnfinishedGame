@@ -1,0 +1,206 @@
+[gd_scene load_steps=8 format=3 uid="uid://d12v37axxi0vq"]
+
+[ext_resource type="PackedScene" uid="uid://cqram45mgb3dj" path="res://scenes/ui/components/slot_menu.tscn" id="1_snr6l"]
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_vwefg"]
+[ext_resource type="Script" uid="uid://0ra00xmto1a4" path="res://scenes/ui/panel/sub_panel/building_menu.gd" id="2_vwefg"]
+[ext_resource type="PackedScene" uid="uid://cuci1wf1pe7ri" path="res://scenes/ui/components/slot.tscn" id="3_m52ei"]
+[ext_resource type="Texture2D" uid="uid://bub4lridyfpsc" path="res://assets/ui/icon/basic_resource/能源图标2.png" id="5_m52ei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vwefg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qstu8"]
+content_margin_left = 5.0
+
+[node name="BuildingMenu" type="PanelContainer" node_paths=PackedStringArray("existing_building_menu", "available_building_menu", "tab_container")]
+offset_right = 570.0
+offset_bottom = 308.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("1_vwefg")
+script = ExtResource("2_vwefg")
+existing_building_menu = NodePath("TabContainer/ExistingBuildingContainer/ExistingBuildingMenu")
+available_building_menu = NodePath("TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu")
+tab_container = NodePath("TabContainer")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vwefg")
+current_tab = 0
+tabs_visible = false
+
+[node name="ExistingBuildingContainer" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label2" type="Label" parent="TabContainer/ExistingBuildingContainer"]
+custom_minimum_size = Vector2(0, 57)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qstu8")
+text = "建筑列表"
+
+[node name="ExistingBuildingMenu" parent="TabContainer/ExistingBuildingContainer" instance=ExtResource("1_snr6l")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+menu_tag = "existing"
+
+[node name="MarginContainer" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu" index="0"]
+theme_override_constants/margin_top = -3
+
+[node name="slot2" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="1" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot3" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="2" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot4" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="3" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot5" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="4" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot6" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="5" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot7" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="6" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot8" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="7" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot9" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="8" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot10" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="9" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot11" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="10" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot12" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="11" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot13" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="12" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot14" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="13" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot15" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="14" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot16" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="15" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot17" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="16" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot18" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="17" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot19" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="18" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot20" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="19" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot21" parent="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="20" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="AvaiableBuildingContainer" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="hBoxContainer" type="GridContainer" parent="TabContainer/AvaiableBuildingContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureButton" type="TextureButton" parent="TabContainer/AvaiableBuildingContainer/hBoxContainer"]
+custom_minimum_size = Vector2(60, 57)
+layout_mode = 2
+texture_normal = ExtResource("5_m52ei")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="TabContainer/AvaiableBuildingContainer/hBoxContainer"]
+custom_minimum_size = Vector2(60, 57)
+layout_mode = 2
+texture_normal = ExtResource("5_m52ei")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AvaiableBuildingMenu" parent="TabContainer/AvaiableBuildingContainer" instance=ExtResource("1_snr6l")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+menu_tag = "avaiable"
+
+[node name="MarginContainer" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu" index="0"]
+theme_override_constants/margin_top = 0
+
+[node name="slot2" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="1" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot3" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="2" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot4" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="3" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot5" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="4" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot6" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="5" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot7" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="6" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot8" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="7" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot9" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="8" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot10" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="9" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot11" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="10" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot12" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="11" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot13" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="12" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot14" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="13" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot15" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="14" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot16" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="15" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot17" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="16" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot18" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="17" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot19" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="18" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot20" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="19" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[node name="slot21" parent="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu/MarginContainer/ScrollContainer/GridContainer" index="20" instance=ExtResource("3_m52ei")]
+layout_mode = 2
+
+[editable path="TabContainer/ExistingBuildingContainer/ExistingBuildingMenu"]
+[editable path="TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu"]

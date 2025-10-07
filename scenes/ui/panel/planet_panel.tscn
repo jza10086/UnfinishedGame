@@ -1,0 +1,181 @@
+[gd_scene load_steps=18 format=3 uid="uid://lag61smqhjad"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_20a5x"]
+[ext_resource type="Script" uid="uid://cmuobyn8hf8t2" path="res://scenes/ui/panel/planet_panel.gd" id="1_ft84s"]
+[ext_resource type="Script" uid="uid://dxhyqfcu7lq1a" path="res://scenes/game_object/colony/tiles.gd" id="2_ft84s"]
+[ext_resource type="TileSet" uid="uid://dbflqvg00407i" path="res://assets/ui/Tilemap/ColonyTile.tres" id="3_k5vbc"]
+[ext_resource type="Script" uid="uid://cjeguhn2woi67" path="res://scenes/game_object/colony/tile_layer.gd" id="4_nhosl"]
+[ext_resource type="TileSet" uid="uid://b524ilfgxg7ri" path="res://assets/ui/Tilemap/ColonyBuildingTile.tres" id="5_tenwt"]
+[ext_resource type="Texture2D" uid="uid://d1q2tb1vpwcw3" path="res://assets/ui/Tilemap/tile_border.png" id="6_fiipq"]
+[ext_resource type="Script" uid="uid://dyalprkcjhahk" path="res://scenes/game_object/colony/highlight_layer.gd" id="7_nd5hh"]
+[ext_resource type="Script" uid="uid://ccyy4ig8fbq13" path="res://scenes/game_object/colony/placement_ghost.gd" id="9_k5vbc"]
+[ext_resource type="PackedScene" uid="uid://cbovg5vjsan0e" path="res://scenes/ui/components/resource_container.tscn" id="11_tenwt"]
+[ext_resource type="PackedScene" uid="uid://d12v37axxi0vq" path="res://scenes/ui/panel/sub_panel/building_menu.tscn" id="13_nd5hh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wwnm"]
+texture = ExtResource("6_fiipq")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bjabt"]
+tile_shape = 3
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(512, 218)
+sources/0 = SubResource("TileSetAtlasSource_8wwnm")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tenwt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fiipq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tenwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nd5hh"]
+
+[node name="PlanetPanel" type="Control" node_paths=PackedStringArray("ghost_node", "building_menu", "describe_label", "resource_container", "name_label", "tiles")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("1_20a5x")
+script = ExtResource("1_ft84s")
+ghost_node = NodePath("PlacementGhost")
+building_menu = NodePath("BuildingMenu")
+describe_label = NodePath("FoldableContainer/DescribeLabel")
+resource_container = NodePath("PanelContainer/ResourceContainer")
+name_label = NodePath("PlanetNameLabel")
+tiles = NodePath("Tiles")
+
+[node name="PlacementGhost" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+top_level = true
+scale = Vector2(0.2, 0.2)
+script = ExtResource("9_k5vbc")
+
+[node name="PlanetNameLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -169.0
+offset_right = 281.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "测试文本"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="PlanetSubNameLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -106.0
+offset_right = 62.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 31
+text = "测试文本"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="BuildingMenu" parent="." instance=ExtResource("13_nd5hh")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -570.0
+offset_top = -308.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Tiles" type="Node2D" parent="." node_paths=PackedStringArray("highlight_layer", "ground_layer", "building_layer")]
+texture_filter = 2
+position = Vector2(904, 540)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("2_ft84s")
+highlight_layer = NodePath("HighlightLayer")
+ground_layer = NodePath("GroundLayer")
+building_layer = NodePath("BuildingLayer")
+
+[node name="GroundLayer" type="TileMapLayer" parent="Tiles"]
+tile_set = ExtResource("3_k5vbc")
+script = ExtResource("4_nhosl")
+
+[node name="BuildingLayer" type="TileMapLayer" parent="Tiles"]
+tile_set = ExtResource("5_tenwt")
+script = ExtResource("4_nhosl")
+
+[node name="HighlightLayer" type="TileMapLayer" parent="Tiles"]
+tile_set = SubResource("TileSet_bjabt")
+script = ExtResource("7_nd5hh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -308.0
+offset_right = 570.0
+grow_vertical = 0
+
+[node name="ResourceContainer" parent="PanelContainer" instance=ExtResource("11_tenwt")]
+layout_mode = 2
+vertical = true
+
+[node name="FoldableContainer" type="FoldableContainer" parent="."]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 120.0
+offset_right = 765.0
+offset_bottom = 429.0
+mouse_behavior_recursive = 2
+theme_override_icons/expanded_arrow = SubResource("CompressedTexture2D_tenwt")
+theme_override_icons/folded_arrow = SubResource("CompressedTexture2D_fiipq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tenwt")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nd5hh")
+title = "简介"
+title_alignment = 1
+
+[node name="DescribeLabel" type="RichTextLabel" parent="FoldableContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+mouse_filter = 2
+theme_override_constants/line_separation = -6
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 20
+text = "	水星（英语：Mercury，拉丁语：Mercurius），古称辰星（西汉《史记‧天官书》的作者司马迁从实际观测发现呈灰色，晨星与五行学说联系在一起），以水的黑色为归属，将其命名为水星。因其运动迅速，欧洲古代称它为墨丘利，意为信使神（古罗马神话中，飞速奔跑）。
+	水星表面遍布环形山（与月球和其他卫星相似），其地质在数十亿年来都处于非活动状态。水星无四季变化，行星中仅有它与太阳轨道共振。相等，每自转三圈的时间在太阳上与绕太阳公转两圈。参照太阳的自转与公转，每两个水星年差不多等于一个太阳日。因此，对观测者所在的水星来说，一“天”相当于两年。"
+autowrap_mode = 2
+tab_size = 8
+selection_enabled = true
+
+[editable path="BuildingMenu"]
+[editable path="BuildingMenu/TabContainer/ExistingBuildingContainer/ExistingBuildingMenu"]
+[editable path="BuildingMenu/TabContainer/AvaiableBuildingContainer/AvaiableBuildingMenu"]
+[editable path="PanelContainer/ResourceContainer"]
+[editable path="PanelContainer/ResourceContainer/ResourceLabel"]

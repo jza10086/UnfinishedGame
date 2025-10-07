@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://xfa8gnpyx05t"]
+
+[ext_resource type="Script" uid="uid://c0dihljsq5xmu" path="res://scenes/ui/components/jza_sub_view_container.gd" id="1_sxomw"]
+
+[node name="SubViewContainer" type="SubViewportContainer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sxomw")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="ContentRoot" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

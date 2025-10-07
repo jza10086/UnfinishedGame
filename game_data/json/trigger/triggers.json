@@ -1,0 +1,9 @@
+{
+	"triggers":{
+		"test_trigger":{
+			"AND": ["_check_current_resource",
+					{"OR": ["_check_planet_type", "_check_planet_size"]}
+			]
+		}
+	}
+}

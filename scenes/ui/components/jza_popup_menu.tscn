@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://qxt3hx76nwv7"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_ij87e"]
+[ext_resource type="Script" uid="uid://tbq3hrvdv4nj" path="res://scenes/ui/components/jza_popup_menu.gd" id="2_upesl"]
+
+[node name="JzaPopupMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ij87e")
+script = ExtResource("2_upesl")
+
+[node name="CustomMenu" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 136.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CustomMenu"]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="CustomMenu/VBoxContainer"]
+layout_mode = 2
+text = "选项 1"
+
+[node name="Option2" type="Button" parent="CustomMenu/VBoxContainer"]
+layout_mode = 2
+text = "选项 2"
+
+[node name="Separator" type="HSeparator" parent="CustomMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Option3" type="Button" parent="CustomMenu/VBoxContainer"]
+layout_mode = 2
+text = "选项 3"
+
+[node name="Option4" type="Button" parent="CustomMenu/VBoxContainer"]
+layout_mode = 2
+text = "退出"

@@ -1,0 +1,46 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://b524ilfgxg7ri"]
+
+[ext_resource type="Texture2D" uid="uid://bft4i6nv8acsw" path="res://assets/ui/Tilemap/building/default_building_tile.png" id="1_n1ivq"]
+[ext_resource type="Texture2D" uid="uid://c1auhwxt5j6k6" path="res://assets/ui/Tilemap/building/building.png" id="2_wes1i"]
+[ext_resource type="Texture2D" uid="uid://bgxao8uvvw5nn" path="res://assets/ui/Tilemap/building/building1.png" id="3_u8i1t"]
+[ext_resource type="Texture2D" uid="uid://c51hooqvu21t7" path="res://assets/ui/Tilemap/building/building_base_0.png" id="4_fkfml"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0f3gf"]
+texture = ExtResource("1_n1ivq")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 147)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 147)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 147)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssmv6"]
+texture = ExtResource("2_wes1i")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 147)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrfxx"]
+texture = ExtResource("3_u8i1t")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 147)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wc5r7"]
+texture = ExtResource("4_fkfml")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 147)
+
+[resource]
+tile_shape = 3
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(512, 218)
+custom_data_layer_0/name = "data"
+custom_data_layer_0/type = 0
+sources/2 = SubResource("TileSetAtlasSource_ssmv6")
+sources/3 = SubResource("TileSetAtlasSource_yrfxx")
+sources/4 = SubResource("TileSetAtlasSource_wc5r7")
+sources/0 = SubResource("TileSetAtlasSource_0f3gf")

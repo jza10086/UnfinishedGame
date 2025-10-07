@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7gn2sxwpgnvd"]
+
+[ext_resource type="Script" uid="uid://cw7rlbvp7mgvi" path="res://assets/model/ships/lazer/lazer.gd" id="1_g36ek"]
+[ext_resource type="Shader" uid="uid://bsng87scbs87a" path="res://assets/model/ships/lazer/lazer.gdshader" id="4_4n55h"]
+[ext_resource type="Texture2D" uid="uid://dsvd10ac5rb1g" path="res://assets/model/ships/lazer/alpha_test8.png" id="4_oaunh"]
+[ext_resource type="Texture2D" uid="uid://bquh2lbvhkkef" path="res://assets/model/ships/lazer/alpha_test5.png" id="5_oaunh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6piuw"]
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oaunh"]
+render_priority = 0
+shader = ExtResource("4_4n55h")
+shader_parameter/beam_width = 0.5
+shader_parameter/beam_width_coeff = 1.0
+shader_parameter/albedo1 = Color(1, 1, 1, 1)
+shader_parameter/alpha1 = 1.0
+shader_parameter/texture_alpha1 = ExtResource("5_oaunh")
+shader_parameter/use_alpha1_texture = true
+shader_parameter/invert_alpha1_texture = false
+shader_parameter/use_albedo2_blend = true
+shader_parameter/albedo2 = Color(3, 0, 0, 1)
+shader_parameter/alpha2 = 1.0
+shader_parameter/texture_alpha2 = ExtResource("4_oaunh")
+shader_parameter/use_alpha2_texture = true
+shader_parameter/invert_alpha2_texture = false
+
+[sub_resource type="Animation" id="Animation_skw01"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:shader_parameter/beam_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_iaa51"]
+resource_name = "lazer_animation"
+length = 1.33334
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:shader_parameter/beam_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.5, -0.5, 0, 0.25, 0, 0.499989, -0.5, 0, 0.5, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 0.833333, 1.33333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bdnlu"]
+_data = {
+&"RESET": SubResource("Animation_skw01"),
+&"lazer_animation": SubResource("Animation_iaa51")
+}
+
+[node name="Lazer" type="Node3D"]
+script = ExtResource("1_g36ek")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_6piuw")
+surface_material_override/0 = SubResource("ShaderMaterial_oaunh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bdnlu")
+}

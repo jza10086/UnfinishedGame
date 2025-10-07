@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://xp0wme48nkfk"]
+
+[ext_resource type="Script" uid="uid://d2klaowtdc2v5" path="res://scenes/ui/components/custom_node/jza_graph_tree_node.gd" id="1_s33r6"]
+[ext_resource type="Texture2D" uid="uid://b6dcvucrl3v8" path="res://assets/ui/icon/fleet_icon1.png" id="2_aflb0"]
+
+[node name="JzaGraphTreeNode" type="Node2D" node_paths=PackedStringArray("texture_rect", "button", "input_marker", "output_marker", "line2d_container")]
+script = ExtResource("1_s33r6")
+texture_rect = NodePath("Button/TextureRect")
+button = NodePath("Button")
+input_marker = NodePath("Input")
+output_marker = NodePath("Output")
+line2d_container = NodePath("Line2DContainer")
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_aflb0")
+expand_mode = 1
+
+[node name="Input" type="Marker2D" parent="."]
+position = Vector2(64, 64)
+
+[node name="Output" type="Marker2D" parent="."]
+position = Vector2(64, 64)
+
+[node name="Line2DContainer" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

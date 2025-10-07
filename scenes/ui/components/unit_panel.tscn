@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1801yrdvporm"]
+
+[ext_resource type="Theme" uid="uid://cc2br0d5t8yjo" path="res://assets/ui/theme/font/new_theme.tres" id="1_sbnvj"]
+[ext_resource type="Script" uid="uid://xty83twhrcce" path="res://scenes/ui/components/unit_panel.gd" id="2_sbnvj"]
+[ext_resource type="StyleBox" uid="uid://uhj42q5j7m7q" path="res://assets/ui/panel_border.tres" id="3_alh72"]
+[ext_resource type="Texture2D" uid="uid://b6dcvucrl3v8" path="res://assets/ui/icon/fleet_icon1.png" id="4_2y60g"]
+[ext_resource type="StyleBox" uid="uid://dwmiiejtcx3rp" path="res://assets/ui/panel_sub4.tres" id="5_rql0c"]
+
+[node name="UnitPanel" type="Control" node_paths=PackedStringArray("label_container", "tag_container", "name_label", "texture_rect")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 550.0
+offset_bottom = 100.0
+theme = ExtResource("1_sbnvj")
+script = ExtResource("2_sbnvj")
+label_container = NodePath("Panel/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer/LabelContainer")
+tag_container = NodePath("Panel/VBoxContainer/HBoxContainer/TagContainer")
+name_label = NodePath("Panel/VBoxContainer/HBoxContainer/Name")
+texture_rect = NodePath("Panel/VBoxContainer/HBoxContainer2/Texture")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_alh72")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Test"
+
+[node name="TagContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/HBoxContainer/TagContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "111"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Texture" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("4_2y60g")
+expand_mode = 3
+
+[node name="DescribePanel" type="PanelContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_rql0c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/DescribePanel"]
+layout_mode = 2
+
+[node name="LabelContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer/LabelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "111"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CostContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/HBoxContainer2/DescribePanel/HBoxContainer/CostContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "111"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

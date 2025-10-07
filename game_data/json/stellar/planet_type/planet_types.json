@@ -1,0 +1,80 @@
+{
+    "_comments": {
+        "general": "这是一个包含行星信息的JSON文件",
+        "format": "键名即为行星类型标识符, describe: 行星描述, tscn: 行星的场景路径, size: 行星大小, tile_amount: 行星表面瓦片数量",
+        "example": {
+                "describe": "this is planet_test_001",
+                "tscn": "assets/model/planets/Planet001/Planet001.tscn",
+                "size": 1.0,
+                "tile_amount": 22,
+                "group": ["planet"],
+                "basic_resources": {
+                    "ENERGY": 0.0,
+                    "MINE": 0.0,
+                    "FOOD": 0.0
+            }
+        }
+    },
+    "planets": {
+        "default_planet_type": {
+            "describe": "this is default_planet_type",
+            "tscn": "res://assets/model/planets/planet.tscn",
+            "size": 1.0,
+            "tile_amount": 22,
+            "group": ["planet"],
+            "basic_resources": {
+                "ENERGY": 0.0,
+                "MINE": 0.0,
+                "FOOD": 0.0
+            }
+        },
+        "star001": {
+            "describe": "this is planet_star001",
+            "tscn": "res://assets/model/planets/star001/star001.tscn",
+            "size": 1.25,
+            "tile_amount": 37,
+            "group": ["planet"],
+            "basic_resources": {
+                "ENERGY": 1.0,
+                "MINE": 1.0,
+                "FOOD": 1.0
+            }
+        },
+        "earth": {
+            "describe": "地球",
+            "tscn": "res://assets/model/planets/earth/earth.tscn",
+            "size": 0.35,
+            "tile_amount": 19,
+            "group": ["planet"],
+            "basic_resources": {
+                "ENERGY": 1.0,
+                "MINE": 1.0,
+                "FOOD": 1.0
+            }
+        },
+        "mercury": {
+            "describe": "水星",
+            "tscn": "res://assets/model/planets/mercury/mercury.tscn",
+            "size": 0.2,
+            "tile_amount": 7,
+            "group": ["planet"],
+            "basic_resources": {
+                "ENERGY": 1.0,
+                "MINE": 1.0,
+                "FOOD": 1.0
+            }
+        },
+        "saturn": {
+            "describe": "土星",
+            "tscn": "res://assets/model/planets/saturn/saturn.tscn",
+            "size": 0.7,
+            "tile_amount": 31,
+            "group": ["planet"],
+            "basic_resources": {
+                "ENERGY": 1.0,
+                "MINE": 1.0,
+                "FOOD": 1.0
+            }
+        }
+    }
+}

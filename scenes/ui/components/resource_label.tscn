@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bapxr18kl058x"]
+
+[ext_resource type="Script" uid="uid://bgwm10x8liklt" path="res://scenes/ui/components/area/info_area.gd" id="1_4b56q"]
+[ext_resource type="Script" uid="uid://c3m2lndujq2lx" path="res://scenes/ui/components/resource_label.gd" id="1_4irpl"]
+[ext_resource type="Texture2D" uid="uid://bvns7pq1dqo2r" path="res://assets/ui/icon/basic_resource/矿产图标.png" id="1_t07jm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4b56q"]
+
+[node name="ResourceLabel" type="HBoxContainer" node_paths=PackedStringArray("icon", "label", "info_area")]
+offset_right = 66.0
+offset_bottom = 24.0
+script = ExtResource("1_4irpl")
+icon = NodePath("InfoArea/BoxContainer/Icon")
+label = NodePath("InfoArea/BoxContainer/RichTextLabel")
+info_area = NodePath("InfoArea")
+
+[node name="InfoArea" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4b56q")
+script = ExtResource("1_4b56q")
+alt_mode = true
+
+[node name="BoxContainer" type="BoxContainer" parent="InfoArea"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="InfoArea/BoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_t07jm")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InfoArea/BoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[color=yellow][outline_size=9][outline_color=black]11111111[/outline_color][/outline_size][/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1

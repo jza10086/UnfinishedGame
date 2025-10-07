@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://blqkbs0pyddvh"]
+
+[ext_resource type="PackedScene" uid="uid://dm5jktd2afmyf" path="res://scenes/ui/components/custom_node/jza_graph_tree.tscn" id="1_sqdmd"]
+[ext_resource type="Script" uid="uid://ds7iqldapgr1x" path="res://scenes/ui/components/tech_system/core_tech_tree.gd" id="2_xiqcm"]
+[ext_resource type="PackedScene" uid="uid://mq4crh8mhs5c" path="res://scenes/ui/components/tech_system/core_tech_tree_node.tscn" id="3_cks3q"]
+
+[node name="CoreTechTree" instance=ExtResource("1_sqdmd")]
+script = ExtResource("2_xiqcm")
+_refresh_button = false
+
+[node name="CoreTechTreeNode" parent="NodeContainer" index="0" node_paths=PackedStringArray("connected_nodes") instance=ExtResource("3_cks3q")]
+position = Vector2(395, 543)
+tech_type = &"CoreTech:basic_physics"
+available = true
+connected_nodes = [NodePath("../CoreTechTreeNode2")]
+
+[node name="CoreTechTreeNode2" parent="NodeContainer" index="1" instance=ExtResource("3_cks3q")]
+position = Vector2(927, 392)
+tech_type = &"CoreTech:advanced_materials"

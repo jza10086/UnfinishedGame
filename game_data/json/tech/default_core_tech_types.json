@@ -1,0 +1,92 @@
+{
+	"_comments": {
+		"general": "这是一个包含核心科技信息的JSON文件",
+		"format": "key:唯一标识符,name: 科技, tech_category: 科技类型(必须为CORE), describe: 科技描述, tier: 科技等级, cost: 研发费用, tags: 科技标签数组, icon_path: 科技图标路径, prerequisites: 前置科技数组, unlocks: 解锁内容, locks: 锁定的科技（互斥科技）, weight: 权重规则数组（对CORE类型科技为空数组）, bonus: 科技加成数组（bonus_type:加成类型, target:目标单位类型(PLANET/FLEET/STELLAR), rule:应用规则(faction/all)）",
+		"example": {
+			"name": "CoreTech:example_tech",
+			"tech_category": "CORE",
+			"describe": "示例核心科技描述",
+			"tier": 1,
+			"cost": 1000.0,
+			"tags": ["示例", "核心"],
+			"icon_path": "res://assets/ui/icon/tech_example.png",
+			"prerequisites": [],
+			"weight": [],
+			"unlocks": {
+				"building": [],
+				"ship": [],
+				"resource": []
+			},
+			"locks": [],
+			"bonus": [
+				{
+					"bonus_type": "example_bonus",
+					"target": "PLANET",
+					"rule": "faction"
+				}
+			]
+		}
+	},
+	"techs": {
+		"CoreTech:basic_physics": {
+			"name": "CoreTech:basic_physics",
+			"tech_category": "CORE",
+			"describe": "基础物理学研究，为阵营提供研究速度加成",
+			"tier": 1,
+			"cost": 1000.0,
+			"tags": ["物理", "基础", "研究"],
+			"icon_path": "res://assets/ui/icon/fleet_icon1.png",
+			"prerequisites": [],
+			"weight": [],
+			"unlocks": {
+				"building": [],
+				"ship": [],
+				"resource": []
+			},
+			"locks": [],
+			"bonus": [
+				{}
+			]
+		},
+		"CoreTech:advanced_materials": {
+			"name": "CoreTech:advanced_materials",
+			"tech_category": "CORE",
+			"describe": "高级材料学，提升阵营建造速度",
+			"tier": 2,
+			"cost": 2000.0,
+			"tags": ["材料", "工程", "建造"],
+			"icon_path": "res://assets/ui/icon/fleet_icon1.png",
+			"prerequisites": ["CoreTech:basic_physics"],
+			"weight": [],
+			"unlocks": {
+				"building": [],
+				"ship": [],
+				"resource": []
+			},
+			"locks": [],
+			"bonus": [
+				{}
+			]
+		},
+		"CoreTech:quantum_theory": {
+			"name": "CoreTech:quantum_theory",
+			"tech_category": "CORE",
+			"describe": "量子理论研究，提升恒星系能量产出",
+			"tier": 2,
+			"cost": 3000.0,
+			"tags": ["量子", "物理", "能源"],
+			"icon_path": "res://assets/ui/icon/fleet_icon1.png",
+			"prerequisites": ["CoreTech:basic_physics"],
+			"weight": [],
+			"unlocks": {
+				"building": [],
+				"ship": [],
+				"resource": []
+			},
+			"locks": [],
+			"bonus": [
+				{}
+			]
+		}
+	}
+}

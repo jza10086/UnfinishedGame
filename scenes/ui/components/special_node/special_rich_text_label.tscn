@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7fl7tq6b4org"]
+
+[ext_resource type="FontFile" uid="uid://boiau6kdtxw3o" path="res://assets/ui/font/SourceHanSansCN/SubsetOTF/CN/SourceHanSansCN-Bold.otf" id="1_cnccw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnccw"]
+content_margin_bottom = 10.0
+bg_color = Color(0.133333, 0.27451, 0.419608, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.535105, 0.853977, 0.962355, 1)
+border_blend = true
+
+[node name="SpecialRichTextLabel" type="RichTextLabel"]
+offset_right = 1.0
+theme_override_fonts/normal_font = ExtResource("1_cnccw")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cnccw")
+bbcode_enabled = true
+text = "45"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
